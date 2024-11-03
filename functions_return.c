@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   functions_return.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 15:48:32 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/03 20:58:00 by hlichten         ###   ########.fr       */
+/*   Created: 2024/11/03 20:06:32 by hlichten          #+#    #+#             */
+/*   Updated: 2024/11/03 20:58:03 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft.h"
+int	ft_putstr_return(char *s)
+{
+	return (write(1, s, ft_strlen(s)));
+}
 
-int ft_putnbr_return(int n);
-int	ft_putstr_return(char *s);
-int	handle_char(va_list argument);
-int	handle_sting(va_list argument);
-int	handle_pointer(va_list argument);
-int	handle_integer(va_list argument);
-int	ft_printf(const char *format, ...);
+int ft_putnbr_return(int n)
+{
+	char c;
 
-#endif
+	if (n == -2147483648)
+		return (ft_putstr_return("-2147483648"));
+	else if (n >= 9 && n >= 0)
+	{
+		c = n - 48;
+		return (write(1, &c, 1));
+	}
+	else if (n < 0)
+	{
+		
+	}
+	else 
+	{
+
+	}
+}
