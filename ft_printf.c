@@ -28,10 +28,10 @@ void handle_format(char c, va_list argument, int *count)
 		handle_char(argument, count);
 	if (c == 's')
 		handle_string(argument, count);
-	if (c == 'd')
-		handle_integer(argument, count);
-	if (c == 'i')
-		handle_integer(argument, count);
+	// if (c == 'd')
+	// 	handle_integer(argument, count);
+	// if (c == 'i')
+	// 	handle_integer(argument, count);
 }
 int	ft_printf(const char *format, ...)
 {
@@ -67,6 +67,6 @@ int	ft_printf(const char *format, ...)
 int	main (int ac, char **av)
 {
 	(void)ac;
-	printf("%d", ft_printf("Hello %d, Wolrd %s, !! %c", atoi(av[1]), av[2], av[3]));
+	ft_printf("#%c#", (av[1][0]));
 	return (0);
 }

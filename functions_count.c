@@ -14,8 +14,10 @@
 
 void	ft_putchar_count(char c, int *count)
 {
-	write(1, &c, 1);
-	(*count)++;
+	if (write(1, &c, 1) == -1)
+		*count = -1;
+	else 
+		(*count)++;
 }
 
 void	ft_putstr_count(char *s, int *count)

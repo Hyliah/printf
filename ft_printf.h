@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "../libft/libft.h"
+# include <stdio.h>
 
 int     ft_printf(const char *format, ...);
 void	ft_putchar_count(char c, int *count);
