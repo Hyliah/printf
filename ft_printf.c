@@ -6,7 +6,7 @@
 /*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 15:22:38 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/03 23:30:25 by hlichten         ###   ########.fr       */
+/*   Updated: 2024/11/07 21:04:01 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	handle_format(char c, va_list argument, int *count)
 	if (c == '%')
 		handle_modulo(argument, count);
 	if (c == 'u')
-		handle_u(argument, count);
+		handle_unsigned(argument, count);
 	if (c == 'c')
 		handle_char(argument, count);
 	if (c == 's')
@@ -62,12 +62,12 @@ int	ft_printf(const char *format, ...)
 	return (*count);
 }
 
-// #include <stdlib.h>
-// #include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-// int	main (int ac, char **av)
-// {
-// 	(void)ac;
-// 	ft_printf("#%c#", (av[1][0]));
-// 	return (0);
-// }
+int	main (int ac, char **av)
+{
+	(void)ac;
+	printf("%d\n", ft_printf("Hellow %x, %s#\n", av[1], av[2]));
+	return (0);
+}

@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_format_cspdi.c                              :+:      :+:    :+:   */
+/*   handle_format_xxmu.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 19:32:52 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/07 20:51:17 by hlichten         ###   ########.fr       */
+/*   Created: 2024/11/07 19:38:39 by hlichten          #+#    #+#             */
+/*   Updated: 2024/11/07 20:57:47 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	handle_char(va_list argument, int *count)
+void	handle_X(va_list argument, int *count)
 {
-	char	c;
-
-	c = va_arg(argument, int);
-	ft_putchar_count(c, count);
-}
-
-void	handle_string(va_list argument, int *count)
-{
-	char	*str;
-
-	str = va_arg(argument, char *);
-	if (str)
-		ft_putstr_count(str, count);
-}
-
-void	handle_pointer(va_list argument, int *count)
-{
-	char    type;
+    char    type;
     unsigned long	nbr;
 
 	nbr = va_arg(argument, unsigned int);
     type = 'X';
-	ft_putchar_count('0', count);
-	ft_putchar_count('x', count);
     ft_puthexa_count(nbr, count, type);
 }
 
-void	handle_integer(va_list argument, int *count)
+void	handle_x(va_list argument, int *count)
 {
-	int	nbr;
+    char    type;
+    unsigned long	nbr;
 
-	nbr = va_arg(argument, int);
-	ft_putnbr_count(nbr, count);
+	nbr = va_arg(argument, unsigned int);
+    type = 'x';
+    ft_puthexa_count(nbr, count, type);
+}
+
+void	handle_modulo(va_list argument, int *count)
+{
+	ft_putchar_count('%', count);
+}
+
+void	handle_unsigned(va_list argument, int *count)
+{
+    unsigned long	nbr;
+
+	nbr = va_arg(argument, unsigned long);
+    ft_putunsigned_count(nbr, count);
 }
