@@ -4,17 +4,13 @@ NAME = libftprintf.a
 # LIBFT = $(LIBFTDIR)/libft.a
 CFLAGS= -Wall -Werror -Wextra -I /include
 
-SRCS= ft_printf.c  functions_count.c  handle_format_cspdi.c
+SRCS= ft_printf.c  functions_count.c  handle_format_cspdi.c handle_format_xxmu.c
 
 OBJDIR= ./obj/
 
 OBJS = ${SRCS:%.c=${OBJDIR}%.o}
-# LIBFT_OBJS = $(wildcard $(OBJDIR)/*.o)
 
 all: $(LIBFT) $(NAME)
-
-# $(LIBFT):
-# 	@$(MAKE) -C $(LIBFTDIR)
 
 ${OBJDIR}%.o: %.c
 	@mkdir -p ${OBJDIR}

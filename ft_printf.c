@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 15:22:38 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/07 21:04:01 by hlichten         ###   ########.fr       */
+/*   Updated: 2024/11/07 22:31:15 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	handle_format(char c, va_list argument, int *count)
 	if (c == 'p')
 		handle_pointer(argument, count);
 	if (c == 'x')
-		handle_x(argument, count);
+		handle_lower_hexa(argument, count);
 	if (c == 'X')
-		handle_X(argument, count);
+		handle_upper_hexa(argument, count);
 	if (c == '%')
 		handle_modulo(argument, count);
 	if (c == 'u')
@@ -62,12 +62,12 @@ int	ft_printf(const char *format, ...)
 	return (*count);
 }
 
-#include <stdlib.h>
-#include <stdio.h>
+// #include <stdlib.h>
+// #include <stdio.h>
 
-int	main (int ac, char **av)
-{
-	(void)ac;
-	printf("%d\n", ft_printf("Hellow %x, %s#\n", av[1], av[2]));
-	return (0);
-}
+// int	main (int ac, char **av)
+// {
+// 	(void)ac;
+// 	printf("%d\n", ft_printf("Hellow %x, %s#\n", av[1], av[2]));
+// 	return (0);
+// }
