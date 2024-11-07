@@ -29,9 +29,10 @@ void	handle_string(va_list argument, int *count)
 		ft_putstr_count(str, count);
 }
 
-// void	handle_pointer(va_list argument, int *count)
-// {
-// }
+void	handle_pointer(va_list argument, int *count)
+{
+	
+}
 
 void	handle_integer(va_list argument, int *count)
 {

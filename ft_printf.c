@@ -12,27 +12,28 @@
 
 #include "ft_printf.h"
 
-void handle_format(char c, va_list argument, int *count)
+void	handle_format(char c, va_list argument, int *count)
 {
-	// if (c == 'p')
-	// 	return
-	// if (c == 'x')
-	// 	return
-	// if (c == 'X')
-	// 	return
-	// if (c == '%')
-	// 	return
-	// if (c == 'u')
-	// 	return 
+	if (c == 'p')
+		handle_pointer(argument, count);
+	if (c == 'x')
+		handle_x(argument, count);
+	if (c == 'X')
+		handle_X(argument, count);
+	if (c == '%')
+		handle_modulo(argument, count);
+	if (c == 'u')
+		handle_u(argument, count);
 	if (c == 'c')
 		handle_char(argument, count);
 	if (c == 's')
 		handle_string(argument, count);
-	// if (c == 'd')
-	// 	handle_integer(argument, count);
-	// if (c == 'i')
-	// 	handle_integer(argument, count);
+	if (c == 'd')
+		handle_integer(argument, count);
+	if (c == 'i')
+		handle_integer(argument, count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	int		i;
@@ -61,12 +62,12 @@ int	ft_printf(const char *format, ...)
 	return (*count);
 }
 
-#include <stdlib.h>
-#include <stdio.h>
+// #include <stdlib.h>
+// #include <stdio.h>
 
-int	main (int ac, char **av)
-{
-	(void)ac;
-	ft_printf("#%c#", (av[1][0]));
-	return (0);
-}
+// int	main (int ac, char **av)
+// {
+// 	(void)ac;
+// 	ft_printf("#%c#", (av[1][0]));
+// 	return (0);
+// }
