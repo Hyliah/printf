@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 20:06:32 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/07 22:31:13 by hlichten         ###   ########.fr       */
+/*   Updated: 2024/11/10 21:00:25 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,40 +36,56 @@ void	ft_putnbr_count(int n, int *count)
 
 	i = 0;
 	if (n == -2147483648)
+	{
 		ft_putstr_count("-2147483648", count);
+		return ;
+	}
+	if (n == 0)
+	{
+		ft_putchar_count('0', count);
+		return ;
+	}
 	if (n < 0)
 	{
-		write (1, "-", 1);
-		n *= -1;
+		ft_putchar_count('-', count);
+		n = -n;
 	}
-	while (n >= 0)
+	while (n > 0)
 	{
-		str[i++] = n % 10;
+		str[i++] = n % 10 + '0';
 		n = n / 10;
 	}
+	i--;
 	while (i >= 0)
 		ft_putchar_count(str[i--], count);
 }
 
-void	ft_putunsigned_count(unsigned long n, int *count)
+void	ft_putunsigned_count(unsigned int n, int *count)
 {
 	int		i;
-	char	str[20];
+	char	str[21];
 
 	i = 0;
+	if (n == 0)
+	{
+		ft_putchar_count('0', count);
+		return;
+	}
 	while (n != 0)
 	{
-		str[i++] = n % 10;
+		str[i] = (n % 10) + '0';
 		n = n / 10;
+		i++;
 	}
+	i--;
 	while (i >= 0)
 		ft_putchar_count(str[i--], count);
 }
 
-void	ft_puthexa_count(unsigned int n, int *count, char type)
+void	ft_puthexa_count(unsigned long n, int *count, char type)
 {
 	int		i;
-	char	str[17];
+	char	str[21];
 	char	*base;
 
 	if (type == 'X')
@@ -88,6 +104,7 @@ void	ft_puthexa_count(unsigned int n, int *count, char type)
 		n = n / 16;
 		i++;
 	}
+	i--;
 	while (i >= 0)
 		ft_putchar_count(str[i--], count);
 }

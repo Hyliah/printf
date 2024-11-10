@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 # LIBFTDIR = ./libft
 # LIBFT = $(LIBFTDIR)/libft.a
-CFLAGS= -Wall -Werror -Wextra -I /include
+CFLAGS= -Wall -Werror -Wextra -I /include 
 
 SRCS= ft_printf.c  functions_count.c  handle_format_cspdi.c handle_format_xxmu.c
 
@@ -35,4 +35,4 @@ so:
 	gcc -nostartfiles -fPIC $(CFLAGS) -c $(SRCS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re alld

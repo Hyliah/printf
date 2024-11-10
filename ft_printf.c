@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 15:22:38 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/07 22:31:15 by hlichten         ###   ########.fr       */
+/*   Updated: 2024/11/10 20:54:36 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	handle_format(char c, va_list argument, int *count)
 	if (c == 'X')
 		handle_upper_hexa(argument, count);
 	if (c == '%')
-		handle_modulo(argument, count);
+		handle_modulo(count);
 	if (c == 'u')
 		handle_unsigned(argument, count);
 	if (c == 'c')
@@ -65,9 +65,9 @@ int	ft_printf(const char *format, ...)
 // #include <stdlib.h>
 // #include <stdio.h>
 
-// int	main (int ac, char **av)
+// int	main (void)
 // {
-// 	(void)ac;
-// 	printf("%d\n", ft_printf("Hellow %x, %s#\n", av[1], av[2]));
+// 	printf("return len from ft_printf is %d\n", ft_printf("%%%c ", 'a'));
+// 	printf("return len from printf is %d\n", printf("%%%c ", 'a'));
 // 	return (0);
 // }
