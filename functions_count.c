@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 20:06:32 by hlichten          #+#    #+#             */
-/*   Updated: 2024/11/10 21:05:50 by hlichten         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:57:03 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,9 @@ void	ft_putstr_count(char *s, int *count)
 
 void	ft_putnbr_count(int n, int *count)
 {
-	int		i;
-	char	str[12];
-
-	i = 0;
 	if (n == -2147483648)
 	{
 		ft_putstr_count("-2147483648", count);
-		return ;
-	}
-	if (n == 0)
-	{
-		ft_putchar_count('0', count);
 		return ;
 	}
 	if (n < 0)
@@ -50,14 +41,9 @@ void	ft_putnbr_count(int n, int *count)
 		ft_putchar_count('-', count);
 		n = -n;
 	}
-	while (n > 0)
-	{
-		str[i++] = n % 10 + '0';
-		n = n / 10;
-	}
-	i--;
-	while (i >= 0)
-		ft_putchar_count(str[i--], count);
+	if (n >= 10)
+		ft_putnbr_count(n / 10, count);
+	ft_putchar_count((n % 10) + '0', count);
 }
 
 void	ft_putunsigned_count(unsigned int n, int *count)
@@ -69,7 +55,7 @@ void	ft_putunsigned_count(unsigned int n, int *count)
 	if (n == 0)
 	{
 		ft_putchar_count('0', count);
-		return;
+		return ;
 	}
 	while (n != 0)
 	{
